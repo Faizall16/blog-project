@@ -33,7 +33,7 @@ You can check out [the Next.js GitHub repository](https://github.com/vercel/next
 
 ## Isi dari Blog
 
-Didalam blog ini terdapat list post dan detail post, serta terdapat fitur crud dibagian bawah blog.
+Didalam blog ini terdapat list post dan detail post, serta terdapat fitur menambah data article.
 
 ## Deploy on Vercel
 

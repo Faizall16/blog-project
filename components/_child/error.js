@@ -1,10 +1,16 @@
 import Image from "next/image";
 
 export default function Error() {
-    return (
-        <div className="text-center py-10">
-            <h1 className="text-3xl font-bold text-orange-600 py-10">Something Went Wrong</h1>
-            <Image src={"/images/404 - page not found.png"} width={400} height={400}></Image>
-        </div>
-    )
+  return (
+    <div className="flex flex-col items-center py-10">
+      <h1 className="text-3xl font-bold text-orange-600 py-10">
+        Something Went Wrong
+      </h1>
+      <Image
+        src={"/images/404 - page not found.png"}
+        width={400}
+        height={400}
+      ></Image>
+    </div>
+  );
 }

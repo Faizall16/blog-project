@@ -6,7 +6,7 @@ import Error from "./_child/error";
 import ModalAddArticle from "./article/ModalAddArticle";
 
 export default function Section2() {
-  const { data, isLoading, isError } = Fetcher("api/posts");
+  const { data, isLoading, isError } = Fetcher("/api/posts");
 
   return (
     <>
@@ -82,7 +82,7 @@ function Posts({ data }) {
           {title || "Title"}
         </Link>
       </div>
-      
+
       <p className="text-gray-500 py-3">{body || "Body"}</p>
       <div className="author flex py-5">
         <Image

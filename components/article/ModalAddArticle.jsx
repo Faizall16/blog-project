@@ -13,6 +13,7 @@ import { PlusOutlined } from "@ant-design/icons";
 import { useDisclosure } from "./../../hooks/useDisclosure";
 import { useState } from "react";
 import { mutate } from "swr";
+import { baseURL } from "../../lib/config";
 
 const { Text } = Typography;
 
@@ -48,7 +49,7 @@ export default function ModalAddArticle() {
         content: form.getFieldValue("content"),
       }),
     });
-    await mutate("http://localhost:3000/api/posts");
+    await mutate(`${baseURL}/api/posts`);
     cancelModal();
   }
 

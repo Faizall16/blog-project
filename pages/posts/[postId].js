@@ -11,7 +11,7 @@ import { ImCircleLeft } from "react-icons/im";
 export default function Page() {
   const router = useRouter();
   const { postId } = router.query;
-  const { data, isLoading, isError } = Fetcher(`api/posts/${postId}`);
+  const { data, isLoading, isError } = Fetcher(`/api/posts/${postId}`);
 
   if (isLoading) return <Spinner />;
   if (isError) return <Error />;

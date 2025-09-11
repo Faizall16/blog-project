@@ -36,10 +36,11 @@ export default function Post(req, res) {
           day: "numeric",
           year: "numeric",
         }),
+        summary: summary || "",
         image: "/images/Polaroid Landscape.jpg",
         comments: {
-          name: "",
-          body: summary || "",
+          name: "Keerti Adiga",
+          body: "Beatae occaecati culpa. Sint illum earum. Quo quia est. Qui quae ratione.",
         },
         category: category || "",
       };

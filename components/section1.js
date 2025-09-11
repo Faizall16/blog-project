@@ -6,6 +6,7 @@ import "swiper/css";
 import Fetcher from "../lib/fetcher";
 import Spinner from "./_child/spinner";
 import Error from "./_child/error";
+import { Typography } from "antd";
 
 export default function Section1() {
   const { data, isLoading, isError } = Fetcher("/api/posts");
@@ -29,7 +30,7 @@ export default function Section1() {
             >
               {data.map((value, index) => (
                 <SwiperSlide key={index}>
-                  <Slide data={value}/>
+                  <Slide data={value} />
                 </SwiperSlide>
               ))}
             </Swiper>
@@ -41,8 +42,18 @@ export default function Section1() {
 }
 
 function Slide({ data }) {
-  const { id, published, image, title, body, image_publisher, name, email, category } =
-    data;
+  const {
+    id,
+    published,
+    image,
+    title,
+    body,
+    image_publisher,
+    name,
+    email,
+    category,
+    summary,
+  } = data;
   return (
     <div className="grid md:grid-cols-2 gap-7">
       <div className="image">
@@ -77,7 +88,14 @@ function Slide({ data }) {
           </Link>
         </div>
 
-        <p className="text-gray-500 py-3">{body || "Body"}</p>
+        <div className="pt-5">
+          <Typography.Title level={4}>Summary</Typography.Title>
+
+          <p>{summary || ""}</p>
+
+          <p className="text-gray-500 py-3">{body || "Body"}</p>
+        </div>
+
         <div className="author flex py-5">
           <Image
             src={image_publisher || "/"}

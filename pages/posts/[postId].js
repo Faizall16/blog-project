@@ -7,6 +7,7 @@ import Spinner from "../../components/_child/spinner";
 import Error from "../../components/_child/error";
 import { useRouter } from "next/router";
 import { ImCircleLeft } from "react-icons/im";
+import { Typography } from "antd";
 
 export default function Page() {
   const router = useRouter();
@@ -17,7 +18,7 @@ export default function Page() {
   if (isError) return <Error />;
   if (!data) return <Error />;
 
-  return <Post {...data}></Post>;
+  return <Post {...data} />;
 }
 
 export function Post({
@@ -31,6 +32,7 @@ export function Post({
   email,
   comments,
   category,
+  summary,
 }) {
   return (
     <>
@@ -81,11 +83,15 @@ export function Post({
             </div>
 
             <div className="content text-gray-600 text-lg flex flex-col gap-4">
-              <p>{body || "Body"}</p>
+              <Typography.Title level={4}>Summary</Typography.Title>
+
+              <p>{summary || ""}</p>
+
+              <p className="text-gray-500 py-3">{body || "Body"}</p>
             </div>
           </div>
         </section>
-        {comments ? <Comment {...comments}></Comment> : <></>}
+        {comments ? <Comment {...comments} /> : ""}
       </Format>
     </>
   );

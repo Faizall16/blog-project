@@ -4,6 +4,7 @@ import Fetcher from "../lib/fetcher";
 import Spinner from "./_child/spinner";
 import Error from "./_child/error";
 import ModalAddArticle from "./article/ModalAddArticle";
+import { Typography } from "antd";
 
 export default function Section2() {
   const { data, isLoading, isError } = Fetcher("/api/posts");
@@ -44,6 +45,7 @@ function Posts({ data }) {
     name,
     email,
     category,
+    summary,
   } = data;
   return (
     <div className="item">
@@ -83,7 +85,14 @@ function Posts({ data }) {
         </Link>
       </div>
 
-      <p className="text-gray-500 py-3">{body || "Body"}</p>
+      <div className="pt-5">
+        <Typography.Title level={4}>Summary</Typography.Title>
+
+        <p>{summary || ""}</p>
+
+        <p className="text-gray-500 py-3">{body || "Body"}</p>
+      </div>
+
       <div className="author flex py-5">
         <Image
           src={image_publisher || "/"}
